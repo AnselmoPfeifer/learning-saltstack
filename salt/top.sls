@@ -4,3 +4,4 @@ base:
     - apache2
     - mysql
     - tunning
+    - users
