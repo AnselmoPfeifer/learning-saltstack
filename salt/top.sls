@@ -1,3 +1,6 @@
 base:
   '*':
-    - webserver
+    - requeirements
+    - apache2
+    - mysql
+    - tunning

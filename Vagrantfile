@@ -16,12 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
-  config.vm.provision :salt do |salt|
-    salt.run_highstate = true
-    salt.install_type = "stable"
-    salt.install_master = true
-    salt.no_minion = true
-    salt.verbose = true
-    salt.colorize = true
-  end
+  config.vm.provision "shell", path: "bootstrap_salt.sh"
+  config.vm.provision "shell", path: "provision.sh"
+
 end
