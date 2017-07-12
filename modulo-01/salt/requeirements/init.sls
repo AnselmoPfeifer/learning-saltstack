@@ -1,3 +1,4 @@
+# packages basics
 essentials-packages:
     pkg.installed:
         - pkgs:
@@ -14,6 +15,7 @@ essentials-packages:
             - apache2-utils
             - ruby
 
+# install gem
 install_bundler:
     gem.installed:
       - name: serverspec
