@@ -1,4 +1,4 @@
-# learning-saltstack
+# modulo-01
 
 ## BOOTSTRAP
 - curl -L https://bootstrap.saltstack.com -o bootstrap_salt.sh
