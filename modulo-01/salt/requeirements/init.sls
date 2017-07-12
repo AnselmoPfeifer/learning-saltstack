@@ -6,10 +6,14 @@ essentials-packages:
             - build-essential
             - git
             - nodejs
-            - sysctat
             - ntp
             - curl
             - htop
             - python-software-properties
             - software-properties-common
             - apache2-utils
+            - ruby
+
+install_bundler:
+    gem.installed:
+      - name: serverspec
