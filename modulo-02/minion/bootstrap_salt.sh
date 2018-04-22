@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 set -x
 
-if [ ! -f /etc/salt/minion ]; then
+if [ ! -d /etc/salt ]; then
+    sudo add-apt-repository -y ppa:saltstack/salt
+    sudo apt-get update
+    sudo apt-get install salt-minion -y
+fi
 sudo -i << EOF
-    add-apt-repository -y ppa:saltstack/salt
-    apt-get update
-    apt-get install salt-minion -y
-
     echo "192.168.0.100     salt.anselmopfeifer.com     salt" >> /etc/hosts
 EOF
-fi
