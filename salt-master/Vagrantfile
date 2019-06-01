@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-16.04"
+
+  config.vm.box_check_update = false
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  #config.vm.network "private_network", ip: "192.168.0.100"
+
+  config.vm.network "public_network", ip: "192.168.0.100"
+
+  # config.vm.synced_folder "../data", "/vagrant_data"
+  
+  config.vm.hostname = "salt-master"
+  
+  config.vm.provider "virtualbox" do |vb|
+     # Display the VirtualBox GUI when booting the machine
+     vb.gui = false
+  
+     # Customize the amount of memory on the VM:
+     vb.memory = "512"
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install salt-master salt-common ssh -y
+
+      if ! grep -q "anselmopfeifer.com" /etc/hosts; then
+          cat /etc/hosts
+
+         echo "192.168.0.101   jenkins.anselmopfeifer.com jenkins"  >> /etc/hosts
+         echo "192.168.0.100   salt-master.anselmopfeifer.com salt-master"  >> /etc/hosts
+         cat /etc/hosts
+      fi
+
+    SHELL
+
+end

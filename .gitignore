@@ -1,2 +1,4 @@
 .idea/
 .vagrant
+jenkins/.vagrant
+salt-master/.vagrant
