@@ -20,6 +20,13 @@
 ## Ajustar as keys
 - salt-key -L
 - salt-key -A
+- salt-key --accept=<KEY> / salt-key --accept-all
+
+## Test
+- salt '*' test.ping
+- salt '*' sys.doc
+- salt '*' sys.doc package
+
 ## LINKs
 - https://www.devopslibrary.com/
 - https://youtu.be/W0i5FpCq2WI?list=PL6TwUbrFsOuMc_V_3tpvn6DeQiyTSqScU
